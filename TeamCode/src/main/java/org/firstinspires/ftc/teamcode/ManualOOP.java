@@ -9,7 +9,7 @@ import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
 
 import java.util.List;
 
-@TeleOp(name="Manual New Version", group="")
+@TeleOp(name="Manual Version", group="")
 public class ManualOOP extends LinearOpMode{
     private HornetRobo hornetRobo = new HornetRobo() ;
 
@@ -31,52 +31,14 @@ public class ManualOOP extends LinearOpMode{
         while (opModeIsActive() && !isStopRequested()) {
 
             logManager.WriteLog("Status", "Ready to run...");
-            
+
 
             manageDriveMotors();
-            manageGrabber();
-            manageArm();
+            manageLauncher();
+            manageRamp();
+            manageIntake();
 
-            manualManager.SetViperSlideMotorTargetPosition();
             manualManager.SetMotorsMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-            if(gamepad1.left_stick_y > 0){
-                manualManager.SetViperSlideDirectionForward();
-                logManager.WriteLog("Status", "Left Joystick Moved up");
-                manualManager.SetViperSlideMotorPower(0.5);
-            }
-            if(gamepad1.left_stick_y < 0){
-                manualManager.SetViperSlideDirectionReverse();
-                logManager.WriteLog("Status", "Left Joystick Moved down");
-                manualManager.SetViperSlideMotorPower(0.5);
-            }
-
-            if(gamepad1.left_stick_y==0){
-                manualManager.SetViperSlideMotorPower(0);
-            }
-            //below is the arm
-           /* if(gamepad1.right_stick_y > 0){
-                robot.setArmDirectionForward();
-                logManager.WriteLog("Status", "Right Joystick Moved up");
-                robot.setArmPower();
-            }
-            if(gamepad1.right_stick_y < 0){
-                robot.setArmDirectionReverse();
-                logManager.WriteLog("Status", "Right Joystick Moved down");
-                robot.setArmPower();
-            }
-            if(gamepad1.right_stick_y==0){
-                robot.setArmMotorPowerZero();
-            }
-*/
-            if(gamepad2.right_trigger > 0){
-                //robot.goDiagonal(1);
-                manualManager.GoStrafe(gamepad2.right_trigger * -1);
-            }
-            else if (gamepad2.left_trigger > 0){
-                manualManager.GoStrafe(gamepad2.left_trigger * 1);
-
-            }
 
             // Pace this loop so hands move at a reasonable speed.
             sleep(50);
@@ -119,35 +81,62 @@ public class ManualOOP extends LinearOpMode{
         
     }
 
-    private void manageGrabber(){
+    private void manageStrafe() {
+
+    }
+
+    private void manageLauncher(){
 
         logManager.WriteLog("Grabber Key", Boolean.toString(gamepad1.a || gamepad1.b));
-        if (gamepad1.a ) {
-            manualManager.MoveGrabber(true);
+        if(gamepad1.left_stick_y > 0){
+            manualManager.SetLauncherDirectionForward();
+            logManager.WriteLog("Status", "Left Joystick Moved up for launcher");
+            manualManager.SetLauncherPower(1);
         }
-        else if (gamepad1.b ) {
-            manualManager.MoveGrabber(false);
+        if(gamepad1.left_stick_y < 0){
+            manualManager.SetLauncherDirectionReverse();
+            logManager.WriteLog("Status", "Left Joystick Moved down");
+            manualManager.SetLauncherPower(1);
         }
+
+        if(gamepad1.left_stick_y==0){
+            manualManager.SetLauncherPower(0);
+        }
+
     }
 
-    private void manageArm(){
-
-        if (gamepad1.right_stick_y > 0) {
-            logManager.WriteLog("ManageArm: Y Stick", Float.toString(gamepad1.right_stick_y));
-            manualManager.MoveArm(true);
+    private void manageRamp(){
+        if(gamepad1.right_stick_y > 0){
+            manualManager.SetRampDirectionForward();
+            manualManager.SetRampPower(1);
+            logManager.WriteLog("Status", "Right Joystick Moved up");
         }
-        else if (gamepad1.right_stick_y < 0) {
-            logManager.WriteLog("ManageArm: Y Stick", Float.toString(gamepad1.right_stick_y));
-            manualManager.MoveArm(false);
+        if(gamepad1.right_stick_y < 0){
+            manualManager.SetRampDirectionReverse();
+            logManager.WriteLog("Status", "Right Joystick Moved down");
+            manualManager.SetRampPower(1);
+        }
+        if(gamepad1.right_stick_y==0){
+            manualManager.SetRampPower(0);
         }
 
-        if (gamepad1.x){
-            logManager.WriteLog("Manage Arm: X - Arm Home Postion : ", Boolean.toString(gamepad1.x));
-
-            manualManager.MoveArmToPosition(ManualManager.ARM_MAX - 0.05);
-        }
     }
 
+    private void manageIntake(){
+        if(gamepad1.right_trigger > 0){
+            manualManager.SetRampDirectionForward();
+            manualManager.SetRampPower(1);
+            logManager.WriteLog("Status", "Right Joystick Moved up");
+        }
+        if(gamepad1.right_trigger < 0){
+            manualManager.SetRampDirectionReverse();
+            logManager.WriteLog("Status", "Right Joystick Moved down");
+            manualManager.SetRampPower(1);
+        }
+        if(gamepad1.right_trigger==0){
+            manualManager.SetRampPower(0);
+        }
 
+    }
 
 }

@@ -22,7 +22,7 @@ public class LogManager {
     private Telemetry telemetry;
 
 
-    private boolean fileLoggingEnabled = true;
+    private boolean fileLoggingEnabled = false;
 
     private static String logFileFolder = "C:\\FTC\\Logs\\";
 
