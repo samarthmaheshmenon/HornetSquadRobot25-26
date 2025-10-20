@@ -7,7 +7,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class ViperSlideManager {
+public class LauncherManager {
 
     // Calculate the COUNTS_PER_INCH for your specific drive train.
     // Go to your motor vendor website to determine your motor's COUNTS_PER_MOTOR_REV
@@ -28,40 +28,40 @@ public class ViperSlideManager {
     private HornetRobo hornetRobo;
 
     // Define a constructor that allows the OpMode to pass a reference to itself.
-    public ViperSlideManager(LinearOpMode LOpMode, HornetRobo HRobo) {
+    public LauncherManager(LinearOpMode LOpMode, HornetRobo HRobo) {
 
         opMode = LOpMode;
         hornetRobo = HRobo;
     }
 
     public void SetMotorsMode(DcMotor.RunMode MotorRunMode) {
-        hornetRobo.ViperSlideOne.setMode(MotorRunMode);
-        hornetRobo.ViperSlideTwo.setMode(MotorRunMode);
+        hornetRobo.LeftLauncher.setMode(MotorRunMode);
+        hornetRobo.RightLauncher.setMode(MotorRunMode);
     }
 
     public void SetDirection(DriveManager.DriveDirection Direction){
         if (Direction == DriveManager.DriveDirection.FORWARD)
         {
-            hornetRobo.ViperSlideOne.setDirection(DcMotor.Direction.FORWARD);
-            hornetRobo.ViperSlideTwo.setDirection(DcMotor.Direction.REVERSE);
+            hornetRobo.LeftLauncher.setDirection(DcMotor.Direction.FORWARD);
+            hornetRobo.RightLauncher.setDirection(DcMotor.Direction.REVERSE);
         }
         else if (Direction == DriveManager.DriveDirection.BACKWARD)
         {
-            hornetRobo.ViperSlideOne.setDirection(DcMotor.Direction.REVERSE);
-            hornetRobo.ViperSlideTwo.setDirection(DcMotor.Direction.FORWARD);
+            hornetRobo.LeftLauncher.setDirection(DcMotor.Direction.REVERSE);
+            hornetRobo.RightLauncher.setDirection(DcMotor.Direction.FORWARD);
         }
     }
 
     public void SetTargetPosition (double DistanceInInches){
 
         int targetPosition = GetEncodedDistance(DistanceInInches);
-        hornetRobo.ViperSlideOne.setTargetPosition(targetPosition);
-        hornetRobo.ViperSlideTwo.setTargetPosition(targetPosition);
+        hornetRobo.LeftLauncher.setTargetPosition(targetPosition);
+        hornetRobo.RightLauncher.setTargetPosition(targetPosition);
     }
 
     public void SetPower (Double Power){
-        hornetRobo.ViperSlideOne.setPower(Power);
-        hornetRobo.ViperSlideTwo.setPower(Power);
+        hornetRobo.LeftLauncher.setPower(Power);
+        hornetRobo.RightLauncher.setPower(Power);
     }
 
     public int GetEncodedDistance(double DistanceInInches)
@@ -86,24 +86,13 @@ public class ViperSlideManager {
 
     public void WaitForMotorToDoTheTask()
     {
-        while (hornetRobo.ViperSlideOne.isBusy() || hornetRobo.ViperSlideTwo.isBusy())
+        while (hornetRobo.LeftLauncher.isBusy() || hornetRobo.RightLauncher.isBusy())
         {
             ;
         }
     }
 
-    public void BrakeOrReleaseViperSlide(Boolean Brake)
-    {
-        if (Brake) {
-            hornetRobo.ViperSlideOne.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-            hornetRobo.ViperSlideTwo.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        }
-        else {
-            hornetRobo.ViperSlideOne.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-            hornetRobo.ViperSlideTwo.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
-        }
-    }
 }
 
 

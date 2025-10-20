@@ -26,16 +26,15 @@ public class HardwareMapper {
         Robo.LeftFrontMotor = opMode.hardwareMap.get(DcMotor.class, "motorLF");
         Robo.LeftBackMotor = opMode.hardwareMap.get(DcMotor.class, "motorLB");
 
-        //Mapping Viper Slide Motors
-        Robo.ViperSlideOne = opMode.hardwareMap.get(DcMotor.class, "motorvs");
-        Robo.ViperSlideTwo = opMode.hardwareMap.get(DcMotor.class, "motorvstwo");
+        //Mapping Launcher Motors
+        Robo.LeftLauncher = opMode.hardwareMap.get(DcMotor.class, "motorleftLauncher");
+        Robo.RightLauncher = opMode.hardwareMap.get(DcMotor.class, "motorRightLauncher");
 
-        //Mapping Arm Servos
-        Robo.ArmOne = opMode.hardwareMap.get(Servo.class, "armServo");
-        Robo.ArmTwo = opMode.hardwareMap.get(Servo.class, "armServoTwo");
+        //Mapping Ramp Motor
+        Robo.RampMotor = opMode.hardwareMap.get(DcMotor.class, "motorRamp");
 
-        //Mapping Grabber Servos
-        Robo.Grabber = opMode.hardwareMap.get(Servo.class, "gripperservo");
+        //Mapping Intake Motor
+        Robo.IntakeMotor = opMode.hardwareMap.get(DcMotor.class, "motorIntake");
 
         opMode.telemetry.addData("Hardware Mapper - MapToHardware:", "Finished map");
         opMode.telemetry.update();

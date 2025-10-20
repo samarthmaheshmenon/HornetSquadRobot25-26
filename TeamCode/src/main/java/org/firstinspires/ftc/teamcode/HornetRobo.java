@@ -10,15 +10,15 @@ public class HornetRobo {
     DcMotor LeftFrontMotor;
     DcMotor LeftBackMotor;
 
-    // ViperSlideMotors
-    DcMotor ViperSlideOne;
-    DcMotor ViperSlideTwo;
+    // Launcher Motors
+    DcMotor LeftLauncher;
+    DcMotor RightLauncher;
 
-    //ArmServos
-    Servo ArmOne;
-    Servo ArmTwo;
+    // Ramp Motor
+    DcMotor RampMotor;
 
-    //GrabberServo
-    Servo Grabber;
+    //Intake Motor
+    DcMotor IntakeMotor;
+
 
 }
