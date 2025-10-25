@@ -29,12 +29,13 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
-@TeleOp(name="Auto Code Test", group="")
+@Autonomous(name="Auto Code Test", group="")
 public class AutoCodeTest extends LinearOpMode {
     static final double     DRIVE_SPEED             = 0.3;
     static final double     DRIVE_INCREASED_SPEED             = 0.8;

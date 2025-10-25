@@ -1,11 +1,12 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
-@TeleOp(name="Auto Launch", group="")
+@Autonomous(name="Auto Launch", group="")
 public class AutoLaunch extends LinearOpMode {
 
     static final double     DRIVE_SPEED             = 0.9;
