@@ -27,14 +27,14 @@ public class HardwareMapper {
         Robo.LeftBackMotor = opMode.hardwareMap.get(DcMotor.class, "motorLB");
 
         //Mapping Launcher Motors
-        Robo.LeftLauncher = opMode.hardwareMap.get(DcMotor.class, "motorleftLauncher");
-        Robo.RightLauncher = opMode.hardwareMap.get(DcMotor.class, "motorRightLauncher");
+        Robo.LeftLauncher = opMode.hardwareMap.get(DcMotor.class, "motorl1");
+        Robo.RightLauncher = opMode.hardwareMap.get(DcMotor.class, "motorl2");
 
         //Mapping Ramp Motor
-        Robo.RampMotor = opMode.hardwareMap.get(DcMotor.class, "motorRamp");
+        Robo.RampMotor = opMode.hardwareMap.get(DcMotor.class, "motorR1");
 
         //Mapping Intake Motor
-        Robo.IntakeMotor = opMode.hardwareMap.get(DcMotor.class, "motorIntake");
+        Robo.IntakeMotor = opMode.hardwareMap.get(DcMotor.class, "motorIn1");
 
         opMode.telemetry.addData("Hardware Mapper - MapToHardware:", "Finished map");
         opMode.telemetry.update();
