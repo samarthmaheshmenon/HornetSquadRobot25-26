@@ -38,7 +38,7 @@ public class ManualOOP extends LinearOpMode{
             manageRamp();
             manageIntake();
 
-            manualManager.SetMotorsMode(DcMotor.RunMode.RUN_TO_POSITION);
+            //manualManager.SetMotorsMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // Pace this loop so hands move at a reasonable speed.
             sleep(50);
@@ -124,17 +124,17 @@ public class ManualOOP extends LinearOpMode{
 
     private void manageIntake(){
         if(gamepad1.right_trigger > 0){
-            manualManager.SetRampDirectionForward();
-            manualManager.SetRampPower(1);
+            manualManager.SetIntakeDirectionForward();
+            manualManager.SetIntakePower(gamepad1.right_trigger);
             logManager.WriteLog("Status", "Right Joystick Moved up");
         }
-        if(gamepad1.right_trigger < 0){
-            manualManager.SetRampDirectionReverse();
+        if(gamepad1.left_trigger > 0){
+            manualManager.SetIntakeDirectionReverse();
             logManager.WriteLog("Status", "Right Joystick Moved down");
-            manualManager.SetRampPower(1);
+            manualManager.SetIntakePower(gamepad1.left_trigger);
         }
-        if(gamepad1.right_trigger==0){
-            manualManager.SetRampPower(0);
+        if(gamepad1.right_trigger + gamepad1.left_trigger == 0){
+            manualManager.SetIntakePower(0);
         }
 
     }
