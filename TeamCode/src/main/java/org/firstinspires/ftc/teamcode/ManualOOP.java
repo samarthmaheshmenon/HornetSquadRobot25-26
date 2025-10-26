@@ -37,6 +37,7 @@ public class ManualOOP extends LinearOpMode{
             manageLauncher();
             manageRamp();
             manageIntake();
+            manageStrafe();
 
             //manualManager.SetMotorsMode(DcMotor.RunMode.RUN_TO_POSITION);
 
@@ -82,7 +83,16 @@ public class ManualOOP extends LinearOpMode{
     }
 
     private void manageStrafe() {
-
+        logManager.WriteLog("Strafe Key", Float.toString(gamepad2.right_trigger));
+        if (gamepad2.right_trigger > 0) {
+            manualManager.GoStrafe(-1 * gamepad2.right_trigger);
+        }
+        else if (gamepad2.left_trigger > 0){
+            manualManager.GoStrafe(gamepad2.left_trigger);
+        }
+        else {
+            manualManager.GoStrafe(0);
+        }
     }
 
     private void manageLauncher(){
