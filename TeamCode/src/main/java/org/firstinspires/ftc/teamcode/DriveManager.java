@@ -44,6 +44,7 @@ public class DriveManager {
 
     private HornetRobo hornetRobo;
 
+
     // Define a constructor that allows the OpMode to pass a reference to itself.
     public DriveManager(LinearOpMode LOpMode, HornetRobo HRobo) {
 
@@ -197,6 +198,12 @@ public class DriveManager {
         int currentRightFront = hornetRobo.RightFrontMotor.getCurrentPosition();
         int currentRightBack = hornetRobo.RightBackMotor.getCurrentPosition();
 
+        opMode.telemetry.addData("Drive Manager currentLeftFront:", currentLeftFront);
+        opMode.telemetry.addData("Drive Manager currentLeftBack:", currentLeftBack);
+        opMode.telemetry.addData("Drive Manager currentRightFront:", currentRightFront);
+        opMode.telemetry.addData("Drive Manager currentRightBack:", currentRightBack);
+
+
         SetMotorDirection(DirectionToMove);
 
         // Calculate new target positions
@@ -211,10 +218,18 @@ public class DriveManager {
         newLeftBackTarget = currentLeftBack + encodedDistance;
         newRightBackTarget = currentRightBack + encodedDistance;
 
+        opMode.telemetry.addData("Drive Manager newLeftFrontTarget:", newLeftFrontTarget);
+        opMode.telemetry.addData("Drive Manager newRightFrontTarget:", newRightFrontTarget);
+        opMode.telemetry.addData("Drive Manager newLeftBackTarget:", newLeftBackTarget);
+        opMode.telemetry.addData("Drive Manager newRightBackTarget:", newRightBackTarget);
+
+
         hornetRobo.LeftFrontMotor.setTargetPosition(newLeftFrontTarget);
         hornetRobo.LeftBackMotor.setTargetPosition(newLeftBackTarget);
         hornetRobo.RightFrontMotor.setTargetPosition(newRightFrontTarget);
         hornetRobo.RightBackMotor.setTargetPosition(newRightBackTarget);
+
+
     }
 
     public void SetPowerToStrafe (DriveDirection DirectionToMove, double StrafePower){
