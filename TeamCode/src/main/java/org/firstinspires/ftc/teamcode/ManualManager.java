@@ -151,11 +151,11 @@ public class ManualManager {
     }
 
     public void SetRampDirectionForward() {
-        rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
+        rampManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
     }
 
     public void SetRampDirectionReverse() {
-        rampManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
+        rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
     }
 
     public void SetIntakeMode (DcMotor.RunMode Mode){
@@ -166,12 +166,12 @@ public class ManualManager {
         intakeManager.SetPower(Power);
     }
 
-    public void SetIntakeDirectionForward() {
-        intakeManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-    }
-
     public void SetIntakeDirectionReverse() {
         intakeManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
+    }
+
+    public void SetIntakeDirectionForward() {
+        intakeManager.SetDirection(DriveManager.DriveDirection.FORWARD);
     }
 }
 
