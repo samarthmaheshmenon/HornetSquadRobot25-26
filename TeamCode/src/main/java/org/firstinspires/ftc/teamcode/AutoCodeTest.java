@@ -37,7 +37,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Autonomous(name="Auto Code Test", group="")
 public class AutoCodeTest extends LinearOpMode {
-    static final double     DRIVE_SPEED             = 0.3;
+    static final double     DRIVE_SPEED             = 0.6;
     static final double     DRIVE_INCREASED_SPEED             = 0.8;
     static final double     TURN_SPEED              = 0.2;
 
@@ -75,12 +75,14 @@ public class AutoCodeTest extends LinearOpMode {
         //Test strafe
         //TestStrafeRoboUsingEncoders();
 
-        TestLogManager();
+        //TestLogManager();
 
         //Test turn
         //TestRotate180();
 
         //Test Move Forward
+
+        Path1();
 
        // driveManager.MoveStraightToPosition(AutoDriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 10);
        // driveManager.MoveStraightToPosition(AutoDriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 10);
@@ -111,7 +113,7 @@ public class AutoCodeTest extends LinearOpMode {
         //TestViperSlideWithBrake(); // test specimen hanging
     }
 
-    public void TestDriveMotorEncodedMove(DcMotor Motor) {
+  /*  public void TestDriveMotorEncodedMove(DcMotor Motor) {
         double testDistance = 5;
         DriveManager driveManager = new DriveManager(this, hornetRobo);
         int encodedDistance = driveManager.getEncodedDistance(testDistance);
@@ -287,5 +289,207 @@ public class AutoCodeTest extends LinearOpMode {
             }
 
         }
+    }
+    */
+    public void Path1() {
+
+        //Going backward to shoot
+        if (opModeIsActive()) {
+
+            telemetry.addData("Starting to move", "");
+            telemetry.update();
+            while (opModeIsActive() && !isStopRequested()) {
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 55);
+
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                //Launcher Pre-Spinning
+                telemetry.addData("Open", "");
+                telemetry.update();
+                launcherManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
+                launcherManager.SetPower(0.6567);
+                telemetry.addData("Close", "");
+                telemetry.update();
+
+                sleep(2000);
+
+                //Ramp Firing
+                telemetry.addData("Move to min", "");
+                telemetry.update();
+                rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
+                rampManager.SetPower(1.0);
+                telemetry.addData("Move to max", "");
+                telemetry.update();
+                sleep(1000);
+
+
+
+                //Ramp Loading
+                telemetry.addData("Move to min", "");
+                telemetry.update();
+                rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
+                rampManager.SetPower(1.0);
+                telemetry.addData("Move to max", "");
+                telemetry.update();
+                sleep(1000);
+
+                telemetry.addData("Move to 0.2", "");
+
+
+                telemetry.update();
+                sleep(2000);
+
+                //Intake Spinning
+                telemetry.addData("Move to min", "");
+                telemetry.update();
+                intakeManager.SetDirection(DriveManager.DriveDirection.FORWARD);
+                intakeManager.SetPower(1.0);
+                telemetry.addData("Move to max", "");
+                telemetry.update();
+                sleep(1000);
+
+                telemetry.addData("Move to 0.2", "");
+                telemetry.update();
+                sleep(2000);
+
+                launcherManager.SetPower(0.0);
+
+                telemetry.addData("Move to 0.2", "");
+                telemetry.update();
+                sleep(2000);
+
+
+                //Launcher Pre-Spinning
+
+                //Ramp Firing
+
+                //Ramp Loading
+
+                //Intake Spinning
+
+                //Launcher Pre-Spinning
+
+                //Ramp Firing
+
+
+                //Rotate Robot
+                telemetry.addData("Starting rotate test timed", "");
+                telemetry.update();
+                //driveManager.TurnTimed(DRIVE_SPEED, 2000);
+                //telemetry.addData("Starting rotate test encoders", "");
+                //telemetry.update();
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
+                sleep(100);
+
+                //Go Backwards
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 55);
+
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                //Rotate Robot (Face Line of Balls)
+                telemetry.addData("Starting rotate test timed", "");
+                telemetry.update();
+                //driveManager.TurnTimed(DRIVE_SPEED, 2000);
+                //telemetry.addData("Starting rotate test encoders", "");
+                //telemetry.update();
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
+                sleep(100);
+
+                //Spin Intake
+                telemetry.addData("Move to min", "");
+                telemetry.update();
+                intakeManager.SetDirection(DriveManager.DriveDirection.FORWARD);
+                intakeManager.SetPower(1.0);
+                telemetry.addData("Move to max", "");
+                telemetry.update();
+                sleep(1000);
+
+                //Spin Ramp
+                telemetry.addData("Move to min", "");
+                telemetry.update();
+                rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
+                rampManager.SetPower(1.0);
+                telemetry.addData("Move to max", "");
+                telemetry.update();
+                sleep(1000);
+
+                //Go Forward
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 55);
+
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                //Go Backward
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 55);
+
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                //Strafe Left
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 5);
+
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                //Rotate/Aim
+                telemetry.addData("Starting rotate test timed", "");
+                telemetry.update();
+                //driveManager.TurnTimed(DRIVE_SPEED, 2000);
+                //telemetry.addData("Starting rotate test encoders", "");
+                //telemetry.update();
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
+                sleep(100);
+
+
+                //*Shoot*
+
+                //Rotate
+                telemetry.addData("Starting rotate test timed", "");
+                telemetry.update();
+                //driveManager.TurnTimed(DRIVE_SPEED, 2000);
+                //telemetry.addData("Starting rotate test encoders", "");
+                //telemetry.update();
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
+                sleep(100);
+
+                //Strafe
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 5);
+
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                //Go Forward (Park)
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 55);
+
+                telemetry.addData("go forward", "");
+                telemetry.update();
+
+
+
+                break;
+            }
+
+        }
+
+
+
+
     }
 }
