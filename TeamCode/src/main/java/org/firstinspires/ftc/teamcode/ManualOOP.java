@@ -90,9 +90,6 @@ public class ManualOOP extends LinearOpMode{
         else if (gamepad2.left_trigger > 0){
             manualManager.GoStrafe(gamepad2.left_trigger);
         }
-        else {
-        //    manualManager.GoStrafe(0);
-        }
     }
 
     private void manageLauncher(){
