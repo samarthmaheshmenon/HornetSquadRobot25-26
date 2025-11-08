@@ -91,7 +91,7 @@ public class ManualOOP extends LinearOpMode{
             manualManager.GoStrafe(gamepad2.left_trigger);
         }
         else {
-            manualManager.GoStrafe(0);
+        //    manualManager.GoStrafe(0);
         }
     }
 
