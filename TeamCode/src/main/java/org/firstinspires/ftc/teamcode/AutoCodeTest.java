@@ -82,7 +82,8 @@ public class AutoCodeTest extends LinearOpMode {
 
         //Test Move Forward
 
-        Path1();
+        shootPresetBalls();
+        moveToIntake();
 
        // driveManager.MoveStraightToPosition(AutoDriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 10);
        // driveManager.MoveStraightToPosition(AutoDriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 10);
@@ -291,7 +292,7 @@ public class AutoCodeTest extends LinearOpMode {
         }
     }
     */
-    public void Path1() {
+    public void shootPresetBalls() {
 
         //Going backward to shoot
         if (opModeIsActive()) {
@@ -308,6 +309,7 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.update();
 
                 //Launcher Pre-Spinning
+                /*
                 telemetry.addData("Open", "");
                 telemetry.update();
                 launcherManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
@@ -376,32 +378,36 @@ public class AutoCodeTest extends LinearOpMode {
                 //Ramp Firing
 
 
+                 */
+
+
+
+                break;
+            }
+
+        }
+    }
+
+    public void moveToIntake() {
+
+        //Going backward to shoot
+        if (opModeIsActive()) {
+
+            telemetry.addData("Starting to move", "");
+            telemetry.update();
+            while (opModeIsActive() && !isStopRequested()) {
+
                 //Rotate Robot
                 telemetry.addData("Starting rotate test timed", "");
                 telemetry.update();
                 //driveManager.TurnTimed(DRIVE_SPEED, 2000);
                 //telemetry.addData("Starting rotate test encoders", "");
                 //telemetry.update();
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED, 32);
                 sleep(100);
 
-                //Go Backwards
-                telemetry.addData("go forward", "");
-                telemetry.update();
-
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 55);
-
-                telemetry.addData("go forward", "");
-                telemetry.update();
-
-                //Rotate Robot (Face Line of Balls)
-                telemetry.addData("Starting rotate test timed", "");
-                telemetry.update();
-                //driveManager.TurnTimed(DRIVE_SPEED, 2000);
-                //telemetry.addData("Starting rotate test encoders", "");
-                //telemetry.update();
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
-                sleep(100);
+                //slight strafe
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 3);
 
                 //Spin Intake
                 telemetry.addData("Move to min", "");
@@ -412,6 +418,12 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.update();
                 sleep(1000);
 
+                //Move forward to pick up balls
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 50);
+
+                intakeManager.SetPower(0.0);
+
+                /*
                 //Spin Ramp
                 telemetry.addData("Move to min", "");
                 telemetry.update();
@@ -420,40 +432,16 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.addData("Move to max", "");
                 telemetry.update();
                 sleep(1000);
+                */
 
-                //Go Forward
-                telemetry.addData("go forward", "");
-                telemetry.update();
 
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 55);
 
-                telemetry.addData("go forward", "");
-                telemetry.update();
+                //return trip - move forward
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 50);
 
-                //Go Backward
-                telemetry.addData("go forward", "");
-                telemetry.update();
-
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 55);
-
-                telemetry.addData("go forward", "");
-                telemetry.update();
-
-                //Strafe Left
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 5);
-
-                telemetry.addData("go forward", "");
-                telemetry.update();
-
-                //Rotate/Aim
-                telemetry.addData("Starting rotate test timed", "");
-                telemetry.update();
-                //driveManager.TurnTimed(DRIVE_SPEED, 2000);
-                //telemetry.addData("Starting rotate test encoders", "");
-                //telemetry.update();
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
+                //angle to shoot
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 50);
                 sleep(100);
-
 
                 //*Shoot*
 
@@ -463,11 +451,11 @@ public class AutoCodeTest extends LinearOpMode {
                 //driveManager.TurnTimed(DRIVE_SPEED, 2000);
                 //telemetry.addData("Starting rotate test encoders", "");
                 //telemetry.update();
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED, 10);
                 sleep(100);
 
                 //Strafe
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 5);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 50);
 
                 telemetry.addData("go forward", "");
                 telemetry.update();
@@ -476,13 +464,10 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.addData("go forward", "");
                 telemetry.update();
 
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 55);
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 25);
 
                 telemetry.addData("go forward", "");
                 telemetry.update();
-
-
-
                 break;
             }
 
@@ -492,4 +477,4 @@ public class AutoCodeTest extends LinearOpMode {
 
 
     }
-}
+    }
