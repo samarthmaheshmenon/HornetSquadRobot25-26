@@ -37,9 +37,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Autonomous(name="Auto Code Test", group="")
 public class AutoCodeTest extends LinearOpMode {
-    static final double     DRIVE_SPEED             = 0.6;
-    static final double     DRIVE_INCREASED_SPEED             = 0.8;
-    static final double     TURN_SPEED              = 0.2;
+    static final double     DRIVE_SPEED             = 1;
+    static final double     DRIVE_INCREASED_SPEED             = 1;
+    static final double     TURN_SPEED              = 1;
 
     private HornetRobo hornetRobo;
 
@@ -233,7 +233,7 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
+                rampManager.SetPower(0.77);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
                 sleep(1000);
@@ -313,21 +313,22 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.addData("Open", "");
                 telemetry.update();
                 launcherManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
-                launcherManager.SetPower(0.6567);
+                launcherManager.SetPower(0.6167);
                 telemetry.addData("Close", "");
                 telemetry.update();
-                sleep(2000);
+                sleep(1500);
 
                 //Ramp Firing
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
+                rampManager.SetPower(0.67);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(1000);
+                sleep(750);
 
                 launcherManager.SetPower(0.0);
+                rampManager.SetPower(0.0);
 
                 //one ball fired
 
@@ -335,30 +336,30 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
+                rampManager.SetPower(0.57);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(1000);
+                sleep(750);
 
 
                 //Launcher Pre-Spinning
                 telemetry.addData("Open", "");
                 telemetry.update();
                 launcherManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
-                launcherManager.SetPower(0.6567);
+                launcherManager.SetPower(0.6167);
                 telemetry.addData("Close", "");
                 telemetry.update();
-                sleep(2000);
+                sleep(1500);
 
                 //Intake Spinning
 
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 intakeManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
-                intakeManager.SetPower(0.67);
+                intakeManager.SetPower(0.2);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(467);
+                sleep(100);
 
                 telemetry.addData("Move to min", "");
                 telemetry.update();
@@ -366,74 +367,22 @@ public class AutoCodeTest extends LinearOpMode {
                 intakeManager.SetPower(1.0);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(1000);
+                sleep(750);
 
                 //Ramp Firing
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
+                rampManager.SetPower(0.57);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(1000);
+                sleep(750);
 
                 launcherManager.SetPower(0.0);
                 rampManager.SetPower(0.0);
                 intakeManager.SetPower(0.0);
 
                 //two balls fired
-
-                //Ramp Loading
-                telemetry.addData("Move to min", "");
-                telemetry.update();
-                rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
-                telemetry.addData("Move to max", "");
-                telemetry.update();
-                sleep(1000);
-
-
-                //Launcher Pre-Spinning
-                telemetry.addData("Open", "");
-                telemetry.update();
-                launcherManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
-                launcherManager.SetPower(0.6567);
-                telemetry.addData("Close", "");
-                telemetry.update();
-                sleep(2000);
-
-                //Intake Spinning
-
-                telemetry.addData("Move to min", "");
-                telemetry.update();
-                intakeManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
-                intakeManager.SetPower(0.67);
-                telemetry.addData("Move to max", "");
-                telemetry.update();
-                sleep(467);
-
-                telemetry.addData("Move to min", "");
-                telemetry.update();
-                intakeManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                intakeManager.SetPower(1.0);
-                telemetry.addData("Move to max", "");
-                telemetry.update();
-                sleep(1000);
-
-                //Ramp Firing
-                telemetry.addData("Move to min", "");
-                telemetry.update();
-                rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
-                telemetry.addData("Move to max", "");
-                telemetry.update();
-                sleep(1000);
-
-                launcherManager.SetPower(0.0);
-                rampManager.SetPower(0.0);
-                intakeManager.SetPower(0.0);
-
-                //3 balls launched
 
                 break;
             }
@@ -469,7 +418,7 @@ public class AutoCodeTest extends LinearOpMode {
                 intakeManager.SetPower(1.0);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(1000);
+                sleep(750);
 
                 //Move forward to pick up balls
                 driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 50);
@@ -487,34 +436,24 @@ public class AutoCodeTest extends LinearOpMode {
 
                 //ramp pre - spinning (to load properly)
                 //Ramp Firing
-                telemetry.addData("Move to min", "");
-                telemetry.update();
-                rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
-                telemetry.addData("Move to max", "");
-                telemetry.update();
-                sleep(1000);
-
-                rampManager.SetPower(0.0);
-                sleep(100);
 
                 //Launcher Pre-Spinning
                 telemetry.addData("Open", "");
                 telemetry.update();
                 launcherManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
-                launcherManager.SetPower(0.6567);
+                launcherManager.SetPower(0.6167);
                 telemetry.addData("Close", "");
                 telemetry.update();
-                sleep(2000);
+                sleep(1500);
 
                 //Ramp Firing
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
+                rampManager.SetPower(0.57);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(1000);
+                sleep(750);
 
                 //one ball fired
 
@@ -522,30 +461,30 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
+                rampManager.SetPower(0.57);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(1000);
+                sleep(750);
 
 
                 //Launcher Pre-Spinning
                 telemetry.addData("Open", "");
                 telemetry.update();
                 launcherManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
-                launcherManager.SetPower(0.6567);
+                launcherManager.SetPower(0.6167);
                 telemetry.addData("Close", "");
                 telemetry.update();
-                sleep(2000);
+                sleep(1500);
 
                 //Intake Spinning
 
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 intakeManager.SetDirection(DriveManager.DriveDirection.BACKWARD);
-                intakeManager.SetPower(0.67);
+                intakeManager.SetPower(0.2);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(467);
+                sleep(100);
 
                 telemetry.addData("Move to min", "");
                 telemetry.update();
@@ -553,16 +492,16 @@ public class AutoCodeTest extends LinearOpMode {
                 intakeManager.SetPower(1.0);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(1000);
+                sleep(750);
 
                 //Ramp Firing
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(1.0);
+                rampManager.SetPower(0.57);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(1000);
+                sleep(750);
 
                 launcherManager.SetPower(0.0);
                 rampManager.SetPower(0.0);
@@ -581,7 +520,7 @@ public class AutoCodeTest extends LinearOpMode {
                 sleep(100);
 
                 //Strafe
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 50);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 28);
 
                 telemetry.addData("go forward", "");
                 telemetry.update();
@@ -590,7 +529,7 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.addData("go forward", "");
                 telemetry.update();
 
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 25);
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 25);
 
                 telemetry.addData("go forward", "");
                 telemetry.update();

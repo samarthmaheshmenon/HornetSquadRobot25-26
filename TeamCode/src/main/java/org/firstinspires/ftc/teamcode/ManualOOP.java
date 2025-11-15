@@ -98,12 +98,12 @@ public class ManualOOP extends LinearOpMode{
         if(gamepad1.left_stick_y > 0){
             manualManager.SetLauncherDirectionForward();
             logManager.WriteLog("Status", "Left Joystick Moved up for launcher");
-            manualManager.SetLauncherPower(0.6567);
+            manualManager.SetLauncherPower(0.6167);
         }
         if(gamepad1.left_stick_y < 0){
             manualManager.SetLauncherDirectionReverse();
             logManager.WriteLog("Status", "Left Joystick Moved down");
-            manualManager.SetLauncherPower(0.6567);
+            manualManager.SetLauncherPower(0.6167);
         }
 
         if(gamepad1.left_stick_y==0){
@@ -115,13 +115,13 @@ public class ManualOOP extends LinearOpMode{
     private void manageRamp(){
         if(gamepad1.right_stick_y > 0){
             manualManager.SetRampDirectionForward();
-            manualManager.SetRampPower(1);
+            manualManager.SetRampPower(0.57);
             logManager.WriteLog("Status", "Right Joystick Moved up");
         }
         if(gamepad1.right_stick_y < 0){
             manualManager.SetRampDirectionReverse();
             logManager.WriteLog("Status", "Right Joystick Moved down");
-            manualManager.SetRampPower(1);
+            manualManager.SetRampPower(0.57);
         }
         if(gamepad1.right_stick_y==0){
             manualManager.SetRampPower(0);
