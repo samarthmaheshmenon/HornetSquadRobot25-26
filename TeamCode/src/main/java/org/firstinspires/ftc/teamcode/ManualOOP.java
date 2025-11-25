@@ -16,6 +16,11 @@ public class ManualOOP extends LinearOpMode{
     private LogManager logManager = new LogManager(this.telemetry, "Manual New Version");
     private ManualManager manualManager = new ManualManager(this, hornetRobo);
 
+    private double farLauncherPower = 0.73;
+
+    private double closeLauncherPower = 0.6167;
+
+    private double launcherPower = closeLauncherPower;
     private boolean isSlow = false;
 
     @Override
@@ -94,21 +99,29 @@ public class ManualOOP extends LinearOpMode{
 
     private void manageLauncher(){
 
+        if (gamepad1.a)
+            launcherPower = closeLauncherPower;
+
+        if (gamepad1.b)
+            launcherPower = farLauncherPower;
+
         logManager.WriteLog("Grabber Key", Boolean.toString(gamepad1.a || gamepad1.b));
         if(gamepad1.left_stick_y > 0){
             manualManager.SetLauncherDirectionForward();
             logManager.WriteLog("Status", "Left Joystick Moved up for launcher");
-            manualManager.SetLauncherPower(0.6167);
+            manualManager.SetLauncherPower(launcherPower);
         }
         if(gamepad1.left_stick_y < 0){
             manualManager.SetLauncherDirectionReverse();
             logManager.WriteLog("Status", "Left Joystick Moved down");
-            manualManager.SetLauncherPower(0.6167);
+            manualManager.SetLauncherPower(launcherPower);
         }
 
         if(gamepad1.left_stick_y==0){
             manualManager.SetLauncherPower(0);
         }
+
+
 
     }
 
