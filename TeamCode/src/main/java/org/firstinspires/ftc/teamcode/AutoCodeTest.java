@@ -325,22 +325,25 @@ public class AutoCodeTest extends LinearOpMode {
                 rampManager.SetPower(0.67);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(750);
+                sleep(100);
 
                 launcherManager.SetPower(0.0);
                 rampManager.SetPower(0.0);
 
+                sleep(100);
+
                 //one ball fired
 
                 //Ramp Loading
+                /*
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
-                rampManager.SetPower(0.57);
+                rampManager.SetPower(0.67);
                 telemetry.addData("Move to max", "");
                 telemetry.update();
-                sleep(750);
-
+                sleep(50);
+                */
 
                 //Launcher Pre-Spinning
                 telemetry.addData("Open", "");
@@ -350,6 +353,17 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.addData("Close", "");
                 telemetry.update();
                 sleep(1500);
+
+                //ramp firing
+
+                telemetry.addData("Move to min", "");
+                telemetry.update();
+                rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
+                rampManager.SetPower(0.67);
+                telemetry.addData("Move to max", "");
+                telemetry.update();
+                sleep(750);
+
 
                 //Intake Spinning
 

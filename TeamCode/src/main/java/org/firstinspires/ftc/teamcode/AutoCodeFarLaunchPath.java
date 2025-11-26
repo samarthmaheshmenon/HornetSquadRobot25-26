@@ -51,10 +51,40 @@ public class AutoCodeFarLaunchPath extends LinearOpMode {
 
                 driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 10);
 
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,17 );
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,6 );
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,17);
+
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,6);
 
                 Launch();
+
+                //initial balls are launched
+
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
+
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
+
+                telemetry.addData("Move to min", "");
+                telemetry.update();
+                intakeManager.SetDirection(DriveManager.DriveDirection.FORWARD);
+                intakeManager.SetPower(1.0);
+                telemetry.addData("Move to max", "");
+                telemetry.update();
+                sleep(750);
+
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 45);
+
+                intakeManager.SetPower(0.0);
+
+                //reverses forward movement, edit to match
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 45);
+
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
+
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
+
+                Launch();
+
+
 
 
                 driveManager.StopRobo();
