@@ -33,8 +33,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 
-@Autonomous(name="Auto Code Test Only for testing parts of code", group="")
-public class AutoCodeTest extends LinearOpMode {
+@Autonomous(name="Auto Code Near Launch Path", group="")
+public class AutoCodeNearLaunchPath extends LinearOpMode {
     static final double     DRIVE_SPEED             = 1;
     static final double     DRIVE_INCREASED_SPEED             = 1;
     static final double     TURN_SPEED              = 1;
@@ -81,8 +81,8 @@ public class AutoCodeTest extends LinearOpMode {
 
         //Test Move Forward
 
-        //shootPresetBalls();
-        //moveToIntake();
+        shootPresetBalls();
+        moveToIntake();
 
        // driveManager.MoveStraightToPosition(AutoDriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 10);
        // driveManager.MoveStraightToPosition(AutoDriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 10);
@@ -291,8 +291,7 @@ public class AutoCodeTest extends LinearOpMode {
         }
     }
     */
-
-    /*public void shootPresetBalls() {
+    public void shootPresetBalls() {
 
         //Going backward to shoot
         if (opModeIsActive()) {
@@ -335,7 +334,7 @@ public class AutoCodeTest extends LinearOpMode {
                 //one ball fired
 
                 //Ramp Loading
-                *//*
+                /*
                 telemetry.addData("Move to min", "");
                 telemetry.update();
                 rampManager.SetDirection(DriveManager.DriveDirection.FORWARD);
@@ -343,7 +342,7 @@ public class AutoCodeTest extends LinearOpMode {
                 telemetry.addData("Move to max", "");
                 telemetry.update();
                 sleep(50);
-                *//*
+                */
 
                 //Launcher Pre-Spinning
                 telemetry.addData("Open", "");
@@ -555,5 +554,5 @@ public class AutoCodeTest extends LinearOpMode {
 
 
 
-    }*/
-}
+    }
+    }

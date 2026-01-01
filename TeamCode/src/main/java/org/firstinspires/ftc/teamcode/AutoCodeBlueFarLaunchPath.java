@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 
-@Autonomous(name="Auto Code Far Launch Path", group="")
-public class AutoCodeFarLaunchPath extends LinearOpMode {
+@Autonomous(name="Auto Code Blue Far Launch Path", group="")
+public class AutoCodeBlueFarLaunchPath extends LinearOpMode {
 
     static final double     DRIVE_SPEED             = 1;
 
@@ -51,17 +51,17 @@ public class AutoCodeFarLaunchPath extends LinearOpMode {
 
                 driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 10);
 
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,17);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,17);
 
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,6);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,6);
 
                 Launch();
 
                 //initial balls are launched
 
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
 
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
 
                 telemetry.addData("Move to min", "");
                 telemetry.update();
@@ -78,9 +78,9 @@ public class AutoCodeFarLaunchPath extends LinearOpMode {
                 //reverses forward movement, edit to match
                 driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 45);
 
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
 
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
 
                 Launch();
 
