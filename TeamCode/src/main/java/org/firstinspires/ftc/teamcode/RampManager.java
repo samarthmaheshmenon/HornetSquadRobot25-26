@@ -19,7 +19,7 @@ public class RampManager {
     static final double     DRIVE_MOTOR_ENCODER_RESOLUTION = 384.5;
     static final double     DRIVE_MOTOR_GEAR_RATIO = 1;
     static final double     COUNTS_PER_MOTOR_REV    = DRIVE_MOTOR_ENCODER_RESOLUTION * DRIVE_MOTOR_GEAR_RATIO ;
-    static final double     WHEEL_DIAMETER_INCHES   = 1.4 ;     // For figuring circumference
+    static final double     WHEEL_DIAMETER_INCHES   = 1.4;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV) / (WHEEL_DIAMETER_INCHES * 3.1415);
 
     /* Declare OpMode members. */

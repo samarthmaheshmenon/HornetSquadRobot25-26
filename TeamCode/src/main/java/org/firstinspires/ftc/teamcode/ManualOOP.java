@@ -128,13 +128,13 @@ public class ManualOOP extends LinearOpMode{
     private void manageRamp(){
         if(gamepad1.right_stick_y > 0){
             manualManager.SetRampDirectionForward();
-            manualManager.SetRampPower(0.57);
+            manualManager.SetRampPower(0.5);
             logManager.WriteLog("Status", "Right Joystick Moved up");
         }
         if(gamepad1.right_stick_y < 0){
             manualManager.SetRampDirectionReverse();
             logManager.WriteLog("Status", "Right Joystick Moved down");
-            manualManager.SetRampPower(0.57);
+            manualManager.SetRampPower(0.5);
         }
         if(gamepad1.right_stick_y==0){
             manualManager.SetRampPower(0);
