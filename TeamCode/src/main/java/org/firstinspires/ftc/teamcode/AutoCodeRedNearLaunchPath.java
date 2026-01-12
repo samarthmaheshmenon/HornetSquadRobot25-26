@@ -87,7 +87,7 @@ public class AutoCodeRedNearLaunchPath extends LinearOpMode {
        // driveManager.MoveStraightToPosition(AutoDriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 10);
        // driveManager.MoveStraightToPosition(AutoDriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 10);
 /*
-        TestDriveMotorEncodedMove(hornetRobo.RightFrontMotor);
+        TestDriveMotorEncod/edMove(hornetRobo.RightFrontMotor);
         TestDriveMotorEncodedMove(hornetRobo.LeftFrontMotor);
         TestDriveMotorEncodedMove(hornetRobo.LeftBackMotor);
         TestDriveMotorEncodedMove(hornetRobo.RightBackMotor);

@@ -285,7 +285,7 @@ public class AutoCodeBlueNearLaunchPath extends LinearOpMode {
                 //telemetry.update();
                 driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
                 sleep(100);
-                break;
+                break;/
             }
 
         }
