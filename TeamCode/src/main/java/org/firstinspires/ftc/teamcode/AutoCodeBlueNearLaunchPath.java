@@ -33,8 +33,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 
-@Autonomous(name="Auto Code Near Launch Path", group="")
-public class AutoCodeNearLaunchPath extends LinearOpMode {
+@Autonomous(name="Auto Code Blue Near Launch Path", group="")
+public class AutoCodeBlueNearLaunchPath extends LinearOpMode {
     static final double     DRIVE_SPEED             = 1;
     static final double     DRIVE_INCREASED_SPEED             = 1;
     static final double     TURN_SPEED              = 1;
@@ -418,11 +418,11 @@ public class AutoCodeNearLaunchPath extends LinearOpMode {
                 //driveManager.TurnTimed(DRIVE_SPEED, 2000);
                 //telemetry.addData("Starting rotate test encoders", "");
                 //telemetry.update();
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED, 32);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 32);
                 sleep(100);
 
                 //slight strafe
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 3);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED, 3);
 
                 //Spin Intake
                 telemetry.addData("Move to min", "");
@@ -442,7 +442,7 @@ public class AutoCodeNearLaunchPath extends LinearOpMode {
                 driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 50);
 
                 //angle to shoot
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 50);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED, 50);
                 sleep(100);
 
                 //shooting 1-2 balls
@@ -529,11 +529,11 @@ public class AutoCodeNearLaunchPath extends LinearOpMode {
                 //driveManager.TurnTimed(DRIVE_SPEED, 2000);
                 //telemetry.addData("Starting rotate test encoders", "");
                 //telemetry.update();
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED, 10);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 10);
                 sleep(100);
 
                 //Strafe
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 28);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED, 28);
 
                 telemetry.addData("go forward", "");
                 telemetry.update();
