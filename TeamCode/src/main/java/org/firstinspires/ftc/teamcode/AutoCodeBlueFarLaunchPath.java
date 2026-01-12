@@ -51,15 +51,13 @@ public class AutoCodeBlueFarLaunchPath extends LinearOpMode {
 
                 driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 10);
 
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,17);
-
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,6);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,6);
 
                 Launch();
 
                 //initial balls are launched
 
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,28);
 
                 driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
 
@@ -80,7 +78,7 @@ public class AutoCodeBlueFarLaunchPath extends LinearOpMode {
 
                 driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
 
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,28);
 
                 Launch();
 
