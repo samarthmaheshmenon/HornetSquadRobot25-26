@@ -105,6 +105,9 @@ public class ManualOOP extends LinearOpMode{
         if (gamepad1.b)
             launcherPower = farLauncherPower;
 
+        if (gamepad1.y)
+            launcherPower = farLauncherPower + 0.07;
+
         logManager.WriteLog("Grabber Key", Boolean.toString(gamepad1.a || gamepad1.b));
         if(gamepad1.left_stick_y > 0){
             manualManager.SetLauncherDirectionForward();

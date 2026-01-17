@@ -59,7 +59,7 @@ public class AutoCodeBlueFarLaunchPath extends LinearOpMode {
 
                 driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,28);
 
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,13);
 
                 telemetry.addData("Move to min", "");
                 telemetry.update();
@@ -69,16 +69,16 @@ public class AutoCodeBlueFarLaunchPath extends LinearOpMode {
                 telemetry.update();
                 sleep(750);
 
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 45);
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 50);
 
                 intakeManager.SetPower(0.0);
 
                 //reverses forward movement, edit to match
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 45);
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 50);
 
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,11);
 
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,28);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,27);
 
                 Launch();
 

@@ -57,7 +57,7 @@ public class AutoCodeRedFarLaunchPath extends LinearOpMode {
 
                 //initial balls are launched
 
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,28);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,29);
 
                 driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED,15);
 
@@ -69,7 +69,7 @@ public class AutoCodeRedFarLaunchPath extends LinearOpMode {
                 telemetry.update();
                 sleep(750);
 
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 45);
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 50);
 
                 intakeManager.SetPower(0.0);
 
@@ -78,7 +78,7 @@ public class AutoCodeRedFarLaunchPath extends LinearOpMode {
 
                 driveManager.StrafeToPosition(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,15);
 
-                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,28);
+                driveManager.TurnUsingEncoders(DriveManager.DriveDirection.RIGHT, DRIVE_SPEED,29);
 
                 Launch();
 
