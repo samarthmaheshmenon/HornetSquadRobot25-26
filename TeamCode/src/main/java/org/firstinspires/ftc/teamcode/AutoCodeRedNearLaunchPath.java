@@ -46,7 +46,7 @@ public class AutoCodeRedNearLaunchPath extends LinearOpMode {
     private IntakeManager intakeManager;
     private RampManager rampManager;
     private LauncherManager launcherManager;
-    private double nearLaunchPower = 0.6167;
+    private double nearLaunchPower = 0.61;
 
     public void initialize()
     {
@@ -303,7 +303,7 @@ public class AutoCodeRedNearLaunchPath extends LinearOpMode {
                 telemetry.addData("go forward", "");
                 telemetry.update();
 
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 55);
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 43);
 
                 telemetry.addData("go forward", "");
                 telemetry.update();
@@ -422,7 +422,7 @@ public class AutoCodeRedNearLaunchPath extends LinearOpMode {
                 sleep(100);
 
                 //slight strafe
-                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 3);
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 7);
 
                 //Spin Intake
                 telemetry.addData("Move to min", "");
@@ -434,12 +434,14 @@ public class AutoCodeRedNearLaunchPath extends LinearOpMode {
                 sleep(750);
 
                 //Move forward to pick up balls
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 50);
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.BACKWARD, DRIVE_SPEED, 41);
 
                 intakeManager.SetPower(0.0);
 
                 //return trip - move forward
-                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 50);
+                driveManager.MoveStraightToPosition(DriveManager.DriveDirection.FORWARD, DRIVE_SPEED, 38);
+
+                driveManager.StrafeToPosition(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 7);
 
                 //angle to shoot
                 driveManager.TurnUsingEncoders(DriveManager.DriveDirection.LEFT, DRIVE_SPEED, 50);
